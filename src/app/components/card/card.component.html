@@ -1,0 +1,15 @@
+<div class="card-wrapper">
+  <div class="card">
+    <img
+      class="card-image"
+      *ngIf="imageUrl"
+      [src]="imageUrl"
+      alt="{{ cardTitle }}"
+    />
+    <span class="card-title">{{ cardTitle }}</span>
+
+    <div class="card-content">
+      <span class="card-text">{{ cardText }}</span>
+    </div>
+  </div>
+</div>

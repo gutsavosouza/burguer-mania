@@ -1,0 +1,30 @@
+<section class="content">
+    <h1 class="title">CATEGORIAS</h1>
+    <div class="categories-grid">
+        <a *ngFor="let categeory of displayedCategories" [href]="'menu/' + categeory.toLowerCase()">
+            <app-card
+            [cardTitle]="categeory"
+            [cardText]="''"
+            [imageUrl]="'sample-burger.png'"
+        >
+        </app-card>
+        </a>
+    </div>
+</section>
+<div class="button-wrapper">
+    <app-button
+      *ngIf="displayedCategories.length < categories.length"
+      (click)="showMore()"
+      label="Mostrar mais"
+      ngClass="showmore-button"
+    >
+    </app-button>
+    <app-button
+      *ngIf="displayedCategories.length > 3"
+      (click)="showLess()"
+      label="Mostrar menos"
+      ngClass="showless-button"
+      type="secondary"
+    >
+    </app-button>
+</div>

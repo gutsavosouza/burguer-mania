@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: sans-serif;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: 3rem;
+    color: #ed0000;
+    text-align: center;
+}
+
+.error-text {
+    color: #521D16;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .error-text{
+        font-size: 0.7rem;
+    }
+  }

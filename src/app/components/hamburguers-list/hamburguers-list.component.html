@@ -1,0 +1,39 @@
+<div class="content">
+  
+  <h1 class="title">{{hamburgers.length > 0 ? title.toUpperCase() : 'Ocorreu um erro!'}}</h1>
+  
+  <div *ngIf="hamburgers.length === 0">
+    <span class="error-text">
+      A categoria a qual você tentou acessar não possui nenhum hambúrguer. Pedimos desculpas pelo ocorrido. Tente outra caregoria.
+    </span>
+  </div>
+
+  <div class="hamburger-grid">
+    <a *ngFor="let hamburger of displayedHamburgers" [href]="'hamburger/' + hamburger.hamburger_id" class="grid-item">
+      <app-card
+      [cardTitle]="hamburger.hamburger_name"
+      [cardText]="hamburger.hamburger_ingredients"
+      [imageUrl]="hamburger.hamburger_image"
+    >
+    </app-card>
+    </a>
+  </div>
+  <div class="button-wrapper">
+    <app-button
+      *ngIf="displayedHamburgers.length < hamburgers.length"
+      (click)="showMore()"
+      label="Mostrar mais"
+      ngClass="showmore-button"
+    >
+    </app-button>
+    <app-button
+      *ngIf="displayedHamburgers.length > 3"
+      (click)="showLess()"
+      label="Mostrar menos"
+      ngClass="showless-button"
+      type="secondary"
+    >
+    </app-button>
+  </div>
+  
+</div>

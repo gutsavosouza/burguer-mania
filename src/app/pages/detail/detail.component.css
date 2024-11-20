@@ -1,0 +1,56 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-section {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-section {
+    margin: 1.5rem;
+}
+
+.description {
+    border: 1px solid #ed0000;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.desc-title {
+    font-weight: bold;
+    text-align: center;
+    color: #521d16;
+}
+
+.ham-image {
+    width: 17rem;
+    height: 13rem;
+}
+
+.ham-name {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.ham-ingredients {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.ham-price {
+    font-weight: bold;
+    font-size: 2rem;
+    color: #521d16;
+}
+

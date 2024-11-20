@@ -1,0 +1,24 @@
+<section *ngIf="hamburger" class="content">
+  <h1 class="title">DETALHES</h1>
+  <section class="details">
+    <section class="left-section">
+        <img class="ham-image" [src]="hamburger.hamburger_image">
+        <span class="ham-name">{{hamburger.hamburger_name}}</span>
+        <span class="ham-ingredients">{{hamburger.hamburger_ingredients}}</span>
+        <span class="ham-price">{{this.currencyPipe.transform(hamburger.hamburger_price, 'BRL', 'symbol', '1.2-2')}}</span>
+    </section>
+    <section class="right-section">
+        <div class="description">
+            <span class="desc-title">Descrição</span>
+            <span class="ham-desc"> {{hamburger.hamburger_description}}</span>
+        </div>
+    </section>
+  </section>
+  <app-button label="COMPRAR" type="primary" link="/order"></app-button>
+</section>
+<section *ngIf="!hamburger" class="content">
+  <h1 class="title">Um erro ocorreu!</h1>
+  <span class="error-text">
+    O hambúrguer o qual você está procurando não está disponível no momento ou não existe, tente outra opção do nosso cardápio.
+  </span>
+</section>

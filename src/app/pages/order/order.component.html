@@ -1,0 +1,71 @@
+<section class="content">
+  <h1 class="title">PEDIDO</h1>
+  <div class="form-wrapper">
+    <form #orderForm="ngForm" (ngSubmit)="submitOrder(orderForm)" class="form">
+      <div class="form-items-wrapper">
+        <div
+          *ngFor="let item of [].constructor(hamburgerQuantity); let i = index" class="repetitive-items"
+        >
+          <div class="form-item">
+            <label for="product_name_{{ i }}">Produto</label>
+            <select
+              class="form-control"
+              id="product_name_{{ i }}"
+              name="product_name_{{ i }}"
+              required
+              ngModel
+            >
+              <option value="">Selecione um produto</option>
+              <option
+                *ngFor="let hamburger of hamburgers"
+                [value]="hamburger.hamburger_id"
+              >
+                {{hamburger.hamburger_name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="quantity_{{ i }}">Quantidade</label>
+            <input
+              type="number"
+              class="form-control"
+              id="quantity_{{ i }}"
+              name="quantity_{{ i }}"
+              min="1"
+              required
+              ngModel
+            />
+          </div>
+        </div>
+        <div class="form-item">
+          <label for="observations">Obersevações</label>
+          <textarea
+            class="form-control"
+            id="observations"
+            name="observations"
+            rows="4"
+            ngModel
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="button-wrapper">
+        <app-button
+          type="secondary"
+          label="Adicionar produto"
+          (click)="addHamburger()"
+        >
+        </app-button>
+        <app-button
+          *ngIf="hamburgerQuantity > 1"
+          type="secondary"
+          label="Remover produto"
+          (click)="removeHamburger()"
+        >
+        </app-button>
+      </div>
+      <app-button type="primary" label="FINALIZAR" [noSubmit]="false">
+      </app-button>
+    </form>
+  </div>
+</section>
